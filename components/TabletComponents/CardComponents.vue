@@ -9,7 +9,8 @@
       >
         <b-card bg-variant="white" :title="carditem.title">
           <b-card-text>
-            <p>{{ carditem.date }}</p>
+            <p>{{ carditem.date }}</p> 
+            
             <p>{{ carditem.description }}</p>
           </b-card-text>
           <b-button class="rounded-pill px-4" href="#" variant="primary"
