@@ -14,12 +14,20 @@
       <b-navbar-nav class="ml-auto">
         <div class="mr-5">
           <b-row>
-            <b-img
-              class="mr-1"
-              width="35%"
-              src="@/assets/img/facebook.png"
-              alt="Responsive image"
-            ></b-img>
+            <nuxt-link to="" class="cart position-relative d-inline-flex mr-3">
+              <b-img
+                class="mr-1"
+                height="30%"
+                src="@/assets/icon/shopping-cart-top.png"
+                alt="Responsive image"
+              ></b-img>
+              <span
+                class="cart-basket d-flex align-items-center justify-content-center"
+              >
+                10
+              </span>
+            </nuxt-link>
+
             <nuxt-link to="/home"><h6 class="m-2">หน้าหลัก</h6></nuxt-link>
           </b-row>
         </div>
@@ -44,6 +52,18 @@
 
 <style lang="scss" scoped>
 @import '~/globalStyles/responsive.scss';
+
+a.cart .cart-basket {
+  font-size: 0.8rem;
+  position: absolute;
+  top: -6px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  background-color: #e22828;
+  border-radius: 50%;
+}
 
 .navbar {
   border-bottom: 4.5px solid #176492;
