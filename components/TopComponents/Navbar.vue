@@ -12,6 +12,18 @@
     <b-collapse id="nav-collapse" is-nav>
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
+        <div class="mr-5">
+          <b-row>
+            <b-img
+              class="mr-1"
+              width="35%"
+              src="@/assets/img/facebook.png"
+              alt="Responsive image"
+            ></b-img>
+            <nuxt-link to="/home"><h6 class="m-2">หน้าหลัก</h6></nuxt-link>
+          </b-row>
+        </div>
+
         <div class="mr-5 border-left pl-4">
           <b-img
             class="mr-1"
@@ -46,6 +58,13 @@
 .responsive {
   width: 10%;
   margin-left: 3rem;
+}
+a {
+  color: #000;
+}
+a:hover {
+  color: #0056b3;
+  text-decoration: none;
 }
 
 @include respond-to($tablet) {

@@ -61,7 +61,7 @@
     </b-row>
 
     <!-- table table-bordered -->
-    <table v- class="table table-bordered res">
+    <table class="table table-bordered res">
       <thead>
         <tr>
           <th scope="col">เลขที่ใบสั่งขาย (SO number)</th>

@@ -50,6 +50,26 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      selected: null,
+      options: [
+        { value: null, text: '-- สถานะ --' },
+        { value: 'a', text: 'This is First option' },
+        { value: 'b', text: 'Selected Option' },
+        { value: { C: '3PO' }, text: 'This is an option with object value' },
+        { value: 'd', text: 'This one is disabled', disabled: true },
+      ],
+      rows: 100,
+      perPage: 10,
+      currentPage: 1,
+    }
+  },
+}
+</script>
+
 <style lang="scss" scoped>
 h5,
 h6 {
