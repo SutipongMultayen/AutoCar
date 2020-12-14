@@ -6,7 +6,7 @@
         <th class="sbcomponent_table_th">รายละเอียด</th>
         <th class="sbcomponent_table_th">ราคาต่อชิ้น</th>
         <th class="sbcomponent_table_th">จำนวน</th>
-        <th class="sbcomponent_table_th">ราคารวมxascascas</th>
+        <th class="sbcomponent_table_th">ราคารวมxascascasqwcqwcqw</th>
         <th class="sbcomponent_table_th"></th>
       </tr>
       <tr class="sbcomponent_table_th" v-for="(item, i) in Cart" :key="i">
