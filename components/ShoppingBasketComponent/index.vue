@@ -5,7 +5,7 @@
         <th class="sbcomponent_table_th">รายการสินค้า</th>
         <th class="sbcomponent_table_th">รายละเอียด</th>
         <th class="sbcomponent_table_th">ราคาต่อชิ้น</th>
-        <th class="sbcomponent_table_th">จำนวน</th>
+        <th class="sbcomponent_table_th">จำนวน Jack</th>
         <th class="sbcomponent_table_th">ราคารวมxascascasqwcqwcqw</th>
         <th class="sbcomponent_table_th"></th>
       </tr>
