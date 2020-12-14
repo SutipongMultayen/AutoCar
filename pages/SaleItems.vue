@@ -3,6 +3,10 @@
     <!-- components HeadTitle -->
     <HeadTitle title="รายการขาย" />
 
+    <!-- Responsive -->
+    <TopFormInput class="resHide" />
+    <CardComponents class="resHide" />
+
     <!-- Form -->
     <b-row class="mx-0 my-3 res">
       <b-col class="col-md-5">
@@ -48,108 +52,6 @@
       </b-col>
     </b-row>
 
-    <!-- table table-bordered -->
-    <!-- <table class="table table-bordered res">
-      <thead>
-        <tr>
-          <th scope="col">เลขที่ใบสั่งขาย (SO number)</th>
-          <th scope="col">วันที่</th>
-          <th scope="col">เวลา</th>
-          <th scope="col">ลูกค้า</th>
-          <th scope="col">สถานะ</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td width="22%">0919-0010</td>
-          <td>12/01/2562</td>
-          <td>10:49:31</td>
-          <td width="22%">ร้าน cc อะไหล่ยนต์ Autopair</td>
-          <td><b-button class="Btnstatus">รีเซท</b-button></td>
-        </tr>
-        <tr>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>Thornton</td>
-          <td><b-button class="Btnstatus">รีเซท</b-button></td>
-        </tr>
-        <tr>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-      </tbody>
-    </table> -->
-
-    <!-- <b-table
-      striped
-      hover
-      show-empty
-      :items="dataSet"
-      :fields="columsName"
-      :sort-by.sync="sortBy"
-      :sort-desc.sync="sortDesc"
-      :current-page="currentPage"
-      :per-page="perPage"
-      ref="table"
-    >
-      <template v-slot:cell(Status)="data">
-        {{ data.item.Status == 1 ? 'ขายได้' : 'เลิกขาย' }}
-      </template>
-    </b-table> -->
-
     <!-- Main table element -->
     <b-table
       hover
@@ -161,24 +63,20 @@
       :filter="filter"
       :sort-by.sync="sortBy"
       :sort-desc.sync="sortDesc"
-      :sort-direction="sortDirection"
+      class="res"
     >
-      <template #cell(name)="row">
-        {{ row.value.first }} {{ row.value.last }}
-      </template>
-
-      <template #cell(actions)="row">
+      <template #cell(status)="row">
         <b-button
-          size="sm"
+          size="md"
           @click="info(row.item, row.index, $event.target)"
-          class="mr-1"
+          class="mr-1 w-100"
         >
-          Info modal
+          รอชำระเงิน
         </b-button>
       </template>
     </b-table>
 
-    <b-row>
+    <b-row class="overflow-auto d-flex justify-content-center p-4 res">
       <b-col sm="7" md="6" class="my-1">
         <b-pagination
           v-model="currentPage"
@@ -222,69 +120,109 @@ export default {
       ],
       items: [
         {
-          isActive: true,
-          age: 40,
-          name: { first: 'Dickerson', last: 'Macdonald' },
+          SONumber: '0919-0010',
+          date: '12/01/2565',
+          time: '10:49:31',
+          customer: 'ร้าน cc อะไหล่ยนต์',
+          status: '',
         },
-        { isActive: false, age: 21, name: { first: 'Larsen', last: 'Shaw' } },
         {
-          isActive: false,
-          age: 9,
-          name: { first: 'Mini', last: 'Navarro' },
+          SONumber: '0919-0010',
+          date: '12/01/2565',
+          time: '10:49:31',
+          customer: 'ร้าน cc อะไหล่ยนต์',
+          status: '',
         },
-        { isActive: false, age: 89, name: { first: 'Geneva', last: 'Wilson' } },
-        { isActive: true, age: 38, name: { first: 'Jami', last: 'Carney' } },
-        { isActive: false, age: 27, name: { first: 'Essie', last: 'Dunlap' } },
-        { isActive: true, age: 40, name: { first: 'Thor', last: 'Macdonald' } },
         {
-          isActive: true,
-          age: 87,
-          name: { first: 'Larsen', last: 'Shaw' },
+          SONumber: '0919-0010',
+          date: '12/01/2565',
+          time: '10:49:31',
+          customer: 'ร้าน cc อะไหล่ยนต์',
+          status: '',
         },
-        { isActive: false, age: 26, name: { first: 'Mitzi', last: 'Navarro' } },
         {
-          isActive: false,
-          age: 22,
-          name: { first: 'Genevieve', last: 'Wilson' },
+          SONumber: '0919-0010',
+          date: '12/01/2565',
+          time: '10:49:31',
+          customer: 'ร้าน cc อะไหล่ยนต์',
+          status: '',
         },
-        { isActive: true, age: 38, name: { first: 'John', last: 'Carney' } },
-        { isActive: false, age: 29, name: { first: 'Dick', last: 'Dunlap' } },
+        {
+          SONumber: '0919-0010',
+          date: '12/01/2565',
+          time: '10:49:31',
+          customer: 'ร้าน cc อะไหล่ยนต์',
+          status: '',
+        },
+        {
+          SONumber: '0919-0010',
+          date: '12/01/2565',
+          time: '10:49:31',
+          customer: 'ร้าน cc อะไหล่ยนต์',
+          status: '',
+        },
+        {
+          SONumber: '0919-0010',
+          date: '12/01/2565',
+          time: '10:49:31',
+          customer: 'ร้าน cc อะไหล่ยนต์',
+          status: '',
+        },
+        {
+          SONumber: '0919-0010',
+          date: '12/01/2565',
+          time: '10:49:31',
+          customer: 'ร้าน cc อะไหล่ยนต์',
+          status: '',
+        },
+        {
+          SONumber: '0919-0010',
+          date: '12/01/2565',
+          time: '10:49:31',
+          customer: 'ร้าน cc อะไหล่ยนต์',
+          status: '',
+        },
+        {
+          SONumber: '0919-0010',
+          date: '12/01/2565',
+          time: '10:49:31',
+          customer: 'ร้าน cc อะไหล่ยนต์',
+          status: '',
+        },
+        {
+          SONumber: '0919-0010',
+          date: '12/01/2565',
+          time: '10:49:31',
+          customer: 'ร้าน cc อะไหล่ยนต์',
+          status: '',
+        },
+        {
+          SONumber: '0919-0010',
+          date: '12/01/2565',
+          time: '10:49:31',
+          customer: 'ร้าน cc อะไหล่ยนต์',
+          status: '',
+        },
       ],
       fields: [
         {
-          key: 'name',
-          label: 'Person full name',
-          sortable: false,
-          sortDirection: 'desc',
+          key: 'SONumber',
+          label: 'เลขที่ใบสั่งขาย (SO Number)',
         },
+        { key: 'date', label: 'วันที่' },
         {
-          key: 'age',
-          label: 'Person age',
-          sortable: false,
-          class: 'text-center',
+          key: 'time',
+          label: 'เวลา',
         },
-        {
-          key: 'isActive',
-          label: 'Is Active',
-          formatter: (value, key, item) => {
-            return value ? 'Yes' : 'No'
-          },
-          sortable: false,
-        },
-        { key: 'actions', label: 'Actions' },
+        { key: 'customer', label: 'ลูกค้า' },
+        { key: 'status', label: 'สถานะ' },
       ],
       totalRows: 1,
       currentPage: 1,
       perPage: 10,
       sortBy: '',
       sortDesc: false,
-      sortDirection: 'asc',
       filter: null,
-      infoModal: {
-        id: 'info-modal',
-        title: '',
-        content: '',
-      },
     }
   },
   mounted() {
@@ -293,7 +231,7 @@ export default {
   },
   methods: {
     info(item, index, button) {
-      console.log("ควย")
+      // console.log("ควย")
       // this.infoModal.title = `Row index: ${index}`
       // this.infoModal.content = JSON.stringify(item, null, 2)
       // this.$root.$emit('bv::show::modal', this.infoModal.id, button)
@@ -309,6 +247,14 @@ export default {
   .res {
     display: none !important;
   }
+
+  .resHide {
+    display: block !important;
+  }
+}
+
+.resHide {
+  display: none;
 }
 
 tbody tr {

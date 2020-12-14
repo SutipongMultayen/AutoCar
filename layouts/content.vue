@@ -5,8 +5,8 @@
     <div class="content">
       <nuxt />
       <!-- หน้า ipod  -->
-      <TopFormInput class="resHide" />
-      <CardComponents class="resHide" />
+      <!-- <TopFormInput class="resHide" />
+      <CardComponents class="resHide" /> -->
     </div>
     <FooterMenu class="resHide" />
   </div>
@@ -17,15 +17,15 @@ import Navbar from '@/components/TopComponents/Navbar'
 import Sidebar from '@/components/TopComponents/Sidebar'
 import FooterMenu from '@/components/TopComponents/FooterMenu'
 
-import TopFormInput from '@/components/TabletComponents/TopFormInput'
-import CardComponents from '@/components/TabletComponents/CardComponents'
+// import TopFormInput from '@/components/TabletComponents/TopFormInput'
+// import CardComponents from '@/components/TabletComponents/CardComponents'
 export default {
   components: {
     Navbar,
     Sidebar,
     FooterMenu,
-    TopFormInput,
-    CardComponents
+    // TopFormInput,
+    // CardComponents
   },
 }
 </script>

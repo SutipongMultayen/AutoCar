@@ -14,7 +14,10 @@
       <b-navbar-nav class="ml-auto">
         <div class="mr-5">
           <b-row>
-            <nuxt-link to="" class="cart position-relative d-inline-flex mr-3">
+            <nuxt-link
+              to="/ShoppingBasket"
+              class="cart position-relative d-inline-flex mr-3"
+            >
               <b-img
                 class="mr-1"
                 height="30%"
@@ -24,7 +27,8 @@
               <span
                 class="cart-basket d-flex align-items-center justify-content-center"
               >
-                10
+                <span v-if="countCart != null">{{ countCart.length }}</span>
+                <span v-else>0</span>
               </span>
             </nuxt-link>
 
@@ -49,6 +53,18 @@
     </b-collapse>
   </b-navbar>
 </template>
+
+<script>
+import { mapState } from 'vuex'
+
+export default {
+  computed: {
+    ...mapState({
+      countCart: (state) => state.cart,
+    }),
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 @import '~/globalStyles/responsive.scss';
