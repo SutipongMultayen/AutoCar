@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Kanit', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('~assets/fonts/Kanit-ExtraLight.ttf') format('truetype');
+}
+
+/* @font-face {
+  font-family: 'Kanit', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('~assets/fonts/Kanit-Light.ttf') format('truetype');
+} */

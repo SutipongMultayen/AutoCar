@@ -20,13 +20,11 @@
     <b-row>
       <b-col cols="4" md="4" class="p-0">
         <nuxt-link to="/SaleItems">
-          <div class="card p-5">
-            <img
-              src="@/assets/icon/box.png"
-              class="card-img-top hw-50"
-              alt="..."
-            />
-            <div class="card-body">
+          <div class="card">
+            <div class="px-5 pt-5 d-flex justify-content-center">
+              <img src="@/assets/icon/box.png" class="card-img-top" alt="..." />
+            </div>
+            <div class="card-body pb-5">
               <h2 class="card-title text-center">รายการขาย</h2>
             </div>
           </div>
@@ -34,13 +32,15 @@
       </b-col>
       <b-col cols="4" md="4" class="p-0">
         <nuxt-link to="/PurchaseList">
-          <div class="card p-5">
-            <img
-              src="@/assets/icon/shopping-cart.png"
-              class="card-img-top hw-50"
-              alt="..."
-            />
-            <div class="card-body">
+          <div class="card">
+            <div class="px-5 pt-5 d-flex justify-content-center">
+              <img
+                src="@/assets/icon/shopping-cart.png"
+                class="card-img-top"
+                alt="..."
+              />
+            </div>
+            <div class="card-body pb-5">
               <h2 class="card-title text-center">รายการซื้อ</h2>
             </div>
           </div>
@@ -48,58 +48,66 @@
       </b-col>
       <b-col cols="4" md="4" class="p-0">
         <nuxt-link to="/Warehouse">
-          <div class="card p-5">
-          <img
-            src="@/assets/icon/warehouse.png"
-            class="card-img-top hw-50"
-            alt="..."
-          />
-          <div class="card-body">
-            <h2 class="card-title text-center">คลังสินค้า</h2>
+          <div class="card">
+            <div class="px-5 pt-5 d-flex justify-content-center">
+              <img
+                src="@/assets/icon/warehouse.png"
+                class="card-img-top"
+                alt="..."
+              />
+            </div>
+            <div class="card-body pb-5">
+              <h2 class="card-title text-center">คลังสินค้า</h2>
+            </div>
           </div>
-        </div>
         </nuxt-link>
       </b-col>
       <b-col cols="4" md="4" class="p-0">
         <nuxt-link to="/Finance">
-          <div class="card p-5">
-          <img
-            src="@/assets/icon/loan.png"
-            class="card-img-top hw-50"
-            alt="..."
-          />
-          <div class="card-body">
-            <h2 class="card-title text-center">การเงิน</h2>
+          <div class="card">
+            <div class="px-5 pt-5 d-flex justify-content-center">
+              <img
+                src="@/assets/icon/loan.png"
+                class="card-img-top"
+                alt="..."
+              />
+            </div>
+            <div class="card-body pb-5">
+              <h2 class="card-title text-center">การเงิน</h2>
+            </div>
           </div>
-        </div>
         </nuxt-link>
       </b-col>
       <b-col cols="4" md="4" class="p-0">
         <nuxt-link to="/Directory">
-          <div class="card p-5">
-          <img
-            src="@/assets/icon/photo-album.png"
-            class="card-img-top hw-50"
-            alt="..."
-          />
-          <div class="card-body">
-            <h2 class="card-title text-center">สมุดรายชื่อ</h2>
+          <div class="card">
+            <div class="px-5 pt-5 d-flex justify-content-center">
+              <img
+                src="@/assets/icon/photo-album.png"
+                class="card-img-top"
+                alt="..."
+              />
+            </div>
+            <div class="card-body pb-5">
+              <h2 class="card-title text-center">สมุดรายชื่อ</h2>
+            </div>
           </div>
-        </div>
         </nuxt-link>
       </b-col>
       <b-col cols="4" md="4" class="p-0">
         <nuxt-link to="/Settings">
-          <div class="card p-5">
-          <img
-            src="@/assets/icon/tools.png"
-            class="card-img-top hw-50"
-            alt="..."
-          />
-          <div class="card-body">
-            <h2 class="card-title text-center">ตั้งค่า</h2>
+          <div class="card">
+            <div class="px-5 pt-5 d-flex justify-content-center">
+              <img
+                src="@/assets/icon/tools.png"
+                class="card-img-top"
+                alt="..."
+              />
+            </div>
+            <div class="card-body pb-5">
+              <h2 class="card-title text-center">ตั้งค่า</h2>
+            </div>
           </div>
-        </div>
         </nuxt-link>
       </b-col>
     </b-row>
@@ -118,6 +126,10 @@ export default {
 
 * {
   font-family: 'Kanit', sans-serif;
+}
+
+.card-img-top {
+  width: 35%;
 }
 
 .hw-50 {
