@@ -274,6 +274,28 @@ html,body{
     text-align: center;
   }
 }
+.btn-delete-product {
+  color: #fff;
+  background-color: $statusReject;
+  border-color: $statusReject;
+  height: 40px !important;
+  padding: 0.25rem 1.2rem;
+  font-size: 0.875rem;
+  line-height: 2;
+  border-radius: 0.2rem;
+  border: 1px solid;
+  cursor: pointer;
+  &:hover {
+      color: $statusPacked;
+      background-color: #fff; 
+      border-color: $statusPacked;
+  }
+  @include respond-to($size900) {
+    width: 100%;
+    // margin: 0.2em 0 !important;
+    text-align: center;
+  }
+}
 
 .btn-search {
   color: #fff;
