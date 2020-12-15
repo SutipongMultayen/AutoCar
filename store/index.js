@@ -26,7 +26,6 @@ export const mutations = {
       (item) => item.ProductCode == items.ProductCode
     )
     if (index == 0) {
-      console.log(state.cart[index].Qty)
       state.cart[index].Qty++
     } else {
       state.cart[index].Qty++
@@ -37,7 +36,6 @@ export const mutations = {
       (item) => item.ProductCode == items.ProductCode
     )
     if (index == 0) {
-      // console.log(state.cart[index].Qty);
       state.cart[index].Qty--
       if (state.cart[index].Qty <= 0) {
         state.cart.splice(index, 1)
@@ -59,6 +57,9 @@ export const mutations = {
       state.cart.splice(index, 1)
     }
   },
+  dropAllitem(state){
+     state.cart.splice(0)
+  }
 }
 
 // ตัวผ่านเพื่อความปลอดภัยหรือ ไว้คำนวน
