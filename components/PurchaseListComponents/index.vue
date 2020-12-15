@@ -1,14 +1,8 @@
 <template>
   <div>
-    <HeadTitle class="mb-3" title="รายการซื้อ" />
-
     <b-row class="mb-3">
       <div class="col">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="ชื่อสินค้า"
-        />
+        <input type="text" class="form-control" placeholder="ชื่อสินค้า" />
       </div>
       <div class="col">
         <input
@@ -19,18 +13,10 @@
         />
       </div>
       <div class="col">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="รุ่นรถยนต์"
-        />
+        <input type="text" class="form-control" placeholder="รุ่นรถยนต์" />
       </div>
       <div class="col">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="โฉมรถ"
-        />
+        <input type="text" class="form-control" placeholder="โฉมรถ" />
       </div>
       <div class="col">
         <b-button class="w-50" variant="info">ค้นหา</b-button>
@@ -71,13 +57,10 @@
     </b-row>
   </div>
 </template>
+
+
 <script>
-import HeadTitle from '@/components/TopComponents/HeadTitle'
-
 export default {
-  layout: 'content',
-  components: { HeadTitle },
-
   data() {
     return {
       dataSet: [],
@@ -178,7 +161,7 @@ export default {
           PricePerPiece: 50.0,
           Qty: 1,
           id: '02',
-        }
+        },
       ]
       this.dataSet = tempdata
     },

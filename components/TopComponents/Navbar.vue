@@ -15,7 +15,7 @@
         <div class="mr-5">
           <b-row>
             <nuxt-link
-              to="/ShoppingBasket"
+              to="/PurchaseList/ShoppingBasket"
               class="cart position-relative d-inline-flex mr-3"
             >
               <b-img
