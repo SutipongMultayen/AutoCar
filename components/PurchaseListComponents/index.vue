@@ -40,7 +40,7 @@
           >ซื้อสินค้า</b-button
         >
       </template>
-      <template #empty> ไม่มีข้อมูลในระบบ </template>
+      <template #empty> ไม่มีข้อมูลในระบบs </template>
     </b-table>
 
     <b-row class="overflow-auto d-flex justify-content-center p-4 res">
