@@ -6,7 +6,7 @@
     <!-- Responsive -->
     <TopFormInput class="resHide" />
     <CardComponents class="resHide" />
-
+sd
     <SaleItems />
   </div>
 </template>
