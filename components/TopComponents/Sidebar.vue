@@ -60,7 +60,7 @@
               <h6>รายการซื้อ</h6>
             </b-row>
           </b-nav-item>
-          <b-nav-item class="nav-item" to="/SaleItems">
+          <b-nav-item class="nav-item" to="/Warehouse">
             <b-row>
               <b-img
                 class="mx-3"
@@ -73,7 +73,7 @@
               <h6>คลังสินค้า</h6>
             </b-row>
           </b-nav-item>
-          <b-nav-item class="nav-item" to="/SaleItems">
+          <b-nav-item class="nav-item" to="/Finance">
             <b-row>
               <b-img
                 class="mx-3"
@@ -86,7 +86,7 @@
               <h6>การเงิน</h6>
             </b-row>
           </b-nav-item>
-          <b-nav-item class="nav-item" to="/SaleItems">
+          <b-nav-item class="nav-item" to="/Directory">
             <b-row>
               <b-img
                 class="mx-3"
@@ -99,7 +99,7 @@
               <h6>สมุดรายชื่อ</h6>
             </b-row>
           </b-nav-item>
-          <b-nav-item class="nav-item" to="/SaleItems">
+          <b-nav-item class="nav-item" to="/Settings">
             <b-row>
               <b-img
                 class="mx-3"
