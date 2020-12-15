@@ -1,10 +1,9 @@
 <template>
   <div>
-    <Navbar/>
+    <Navbar />
     <div class="contentA">
-      <nuxt/>
+      <nuxt />
     </div>
-    
   </div>
 </template>
 
@@ -12,13 +11,18 @@
 import Navbar from '@/components/TopComponents/Navbar'
 export default {
   components: {
-    Navbar
-  }
+    Navbar,
+  },
 }
 </script>
 
-<style lang="scss" scoped>
-.contentA{
-  margin-top: 3.5rem;
+<style lang="scss">
+// h3,
+// * {
+//   font-family: 'Kanit', sans-serif !important;
+// }
+.contentA {
+  // margin-top: 3.5rem;
+  padding-top: 3.5rem;
 }
 </style>
