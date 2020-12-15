@@ -1,12 +1,5 @@
 <template>
   <div>
-    <!-- components HeadTitle -->
-    <HeadTitle title="รายการขาย" />
-
-    <!-- Responsive -->
-    <TopFormInput class="resHide" />
-    <CardComponents class="resHide" />
-
     <!-- Form -->
     <b-row class="mx-0 my-3 res">
       <b-col class="col-md-5">
@@ -88,26 +81,11 @@
         ></b-pagination>
       </b-col>
     </b-row>
-
-    <!-- <div class="overflow-auto d-flex justify-content-center p-4 res">
-      Use text in props
-      <b-pagination
-        v-model="currentPage"
-        :total-rows="rows"
-        :per-page="perPage"
-      ></b-pagination>
-    </div> -->
   </div>
 </template>
 
 <script>
-import HeadTitle from '@/components/TopComponents/HeadTitle'
-import TopFormInput from '@/components/TabletComponents/TopFormInput'
-
 export default {
-  layout: 'content',
-  components: { HeadTitle, TopFormInput },
-
   data() {
     return {
       selected: null,

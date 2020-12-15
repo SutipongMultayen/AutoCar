@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import ShoppingBasket from '@/components/ShoppingBasketComponent/index.vue'
+import ShoppingBasket from '@/components/PurchaseListComponents/ShoppingBasketComponent/index.vue'
 export default {
   layout: 'content',
   components: { ShoppingBasket },
