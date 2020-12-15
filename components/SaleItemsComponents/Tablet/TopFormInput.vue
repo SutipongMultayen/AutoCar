@@ -31,12 +31,12 @@
       </b-col>
       <div class="w-100"></div>
       <b-col class="mt-2">
-        <b-form-group label="เลขที่ใบสั่งขาย">
+        <b-form-group class="mr-0" label="เลขที่ใบสั่งขาย">
           <b-form-input placeholder="-- เลขที่ใบสั่งขาย --"></b-form-input>
         </b-form-group>
       </b-col>
       <b-col class="mt-2">
-        <b-form-group label="สถานะ">
+        <b-form-group class="mr-0" label="สถานะ">
           <b-form-select v-model="selected" :options="options"></b-form-select>
         </b-form-group>
       </b-col>
