@@ -60,7 +60,7 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     ...mapState({
-      countCart: (state) => state.cart,
+       countCart: (state) => state.Cart.cart,
     }),
   },
 }

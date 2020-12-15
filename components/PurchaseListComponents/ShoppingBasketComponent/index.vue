@@ -7,7 +7,7 @@
         <th class="sbcomponent_table_th">ราคาต่อชิ้น</th>
         <th class="text-center sbcomponent_table_th" style="width: 10%">จำนวน</th>
         <th class="sbcomponent_table_th">ราคารวม </th>
-        <th class="sbcomponent_table_th"></th>
+        <th class="sbcomponent_table_th" v-if="Cart.length != 0"></th>
       </tr>
       <tr class="sbcomponent_table_th" v-for="(item, i) in Cart" :key="i">
         <td class="sbcomponent_table_th">{{ item.Product }}</td>
@@ -68,11 +68,11 @@
           <div class="col-10 pr-0">
 
           </div>
-          <div class="col-1 pl-0 pr-0 text-right">
+          <div class="col-1 pl-0 pr-0 text-center">
             <button class="btn-delete-product" @click="dropallitem(Cart)">ล้างรายการ</button>
           </div>
-          <div class="col-1 pl-0 pr-0 text-right">
-              <button class="btn-delete ">สั่งซื้อสินค้า</button>
+          <div class="col-1 pl-0 pr-0 text-center">
+              <button class="btn-delete" @click="confirmProduct(Cart)">สั่งซื้อสินค้า</button>
           </div> 
       </div>
     </div>
@@ -90,7 +90,7 @@ export default {
   },
   computed: {
     ...mapState({
-      Cart: (state) => state.cart,
+      Cart: (state) => state.Cart.cart,
     }),
     ...mapGetters({
       sumcart: "sumcart",
@@ -101,7 +101,7 @@ export default {
   },
   methods: {
     Up(item) {
-      this.$store.commit("updatedUp", item);
+      this.$store.commit("Cart/updatedUp", item);
     },
     down(item) {
       if (item.Qty == 1) {
@@ -115,11 +115,11 @@ export default {
           allowOutsideClick: false,
         }).then((result) => {
           if (result.value) {
-            this.$store.commit("updatedDown", item);
+            this.$store.commit("Cart/updatedDown", item);
           }
         });
       } else {
-        this.$store.commit("updatedDown", item);
+        this.$store.commit("Cart/updatedDown", item);
       }
     },
     dropitem(item) {
@@ -133,7 +133,7 @@ export default {
         allowOutsideClick: false,
       }).then((result) => {
         if (result.value) {
-          this.$store.commit("dropitem", item);
+          this.$store.commit("Cart/dropitem", item);
         }
       });
     },
@@ -149,7 +149,7 @@ export default {
       }).then((result) => {
         if (result.value) {
           // console.log("asc");
-          this.$store.commit("dropAllitem");
+          this.$store.commit("Cart/dropAllitem");
         }
       });
     },
@@ -161,10 +161,26 @@ export default {
       let sums = item.map((item) => {
            return item.PricePerPiece * item.Qty
       })
+
       const result = sums.reduce((sum,number) => {
         return sum+number
       }, 0)
       return result
+    },
+  
+    confirmProduct(item){
+      let maindata = []
+            item.forEach(values => {  
+                    let data  = {id:values.id,
+                                  ProductCode :values.ProductCode,
+                                  Product :values.Product,
+                                  PricePerPiece :values.PricePerPiece,
+                                  Detail :values.Detail,
+                                  Totalprice :this.Totalprice(values),
+                                 }
+                        maindata.push(data) 
+            });
+              console.log(maindata);
     }
   },
 };

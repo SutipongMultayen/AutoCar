@@ -151,7 +151,7 @@ export default {
           unit: 'หน่วย',
           PricePerPiece: 40.0,
           Qty: 1,
-          id: '01',
+          id: '04',
         },
         {
           ProductCode: '0005',
@@ -160,7 +160,7 @@ export default {
           unit: 'หน่วย',
           PricePerPiece: 50.0,
           Qty: 1,
-          id: '02',
+          id: '05',
         },
       ]
       this.dataSet = tempdata
@@ -168,7 +168,7 @@ export default {
     addCart(item) {
       let cart = []
       cart.push(item)
-      this.$store.dispatch('addcart', cart)
+      this.$store.dispatch('Cart/addcart', cart)
       // console.log(cart);
     },
   },
