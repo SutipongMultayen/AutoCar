@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeadTitle title="รายการซื้อสิ้นค้าของคุณ" />
+    <HeadTitle class="border-bottom-0" title="รายการซื้อสิ้นค้าของคุณ" />
     <ShoppingBasket />
   </div>
 </template>

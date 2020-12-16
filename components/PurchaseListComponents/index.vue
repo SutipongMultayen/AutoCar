@@ -40,7 +40,10 @@
           >ซื้อสินค้า</b-button
         >
       </template>
-      <template #empty> ไม่มีข้อมูลในระบบs </template>
+      <template v-slot:cell(PricePerPiece)="data">
+        {{tofix(data.item.PricePerPiece)}}
+      </template>
+      <template #empty> ไม่มีข้อมูลในระบบ </template>
     </b-table>
 
     <b-row class="overflow-auto d-flex justify-content-center p-4 res">
@@ -115,32 +118,35 @@ export default {
     this.getdata()
   },
   methods: {
+    tofix(item){
+      return item.toFixed(2)
+    },
     getdata() {
       let tempdata = [
         {
           ProductCode: '0001',
-          Product: 'a1',
-          Detail: 'Detail1',
+          Product: 'จานดิสเบรค หน้า',
+          Detail: 'TOYOTA',
           unit: 'หน่วย',
-          PricePerPiece: 40.0,
+          PricePerPiece: 40.50,
           Qty: 1,
           id: '01',
         },
         {
           ProductCode: '0002',
-          Product: 'a2',
-          Detail: 'Detail2',
+          Product: 'ผ้าดิสเบรค หลัง',
+          Detail: 'VIOS',
           unit: 'หน่วย',
-          PricePerPiece: 40.0,
+          PricePerPiece: 40.35,
           Qty: 1,
           id: '02',
         },
         {
           ProductCode: '0003',
-          Product: 'a3',
-          Detail: 'Detail1',
+          Product: 'โช๊คอัฟ หน้า',
+          Detail: 'VIOS',
           unit: 'หน่วย',
-          PricePerPiece: 40.0,
+          PricePerPiece: 40.90,
           Qty: 1,
           id: '03',
         },
