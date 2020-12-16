@@ -2,17 +2,36 @@
   <div>
     <table style="width: 100%" class="">
       <tr class="sbcomponent_table_th">
-        <th class="sbcomponent_table_th">รายการสินค้า</th>
-        <th class="sbcomponent_table_th">รายละเอียด</th>
-        <th class="sbcomponent_table_th">ราคาต่อชิ้น</th>
-        <th class="text-center sbcomponent_table_th" style="width: 10%">จำนวน</th>
-        <th class="sbcomponent_table_th">ราคารวม </th>
-        <th class="sbcomponent_table_th" v-if="Cart.length != 0"></th>
+        <th class="text-center sbcomponent_table_th">รายการสินค้า</th>
+        <th class="text-center sbcomponent_table_th">รายละเอียด</th>
+        <th class="text-center sbcomponent_table_th">ราคาต่อชิ้น</th>
+        <th class="text-center sbcomponent_table_th" style="width: 10%">
+          จำนวน
+        </th>
+        <th class="text-center sbcomponent_table_th">ราคารวม</th>
+        <th
+          class="text-center sbcomponent_table_th"
+          v-if="Cart.length != 0"
+        ></th>
       </tr>
       <tr class="sbcomponent_table_th" v-for="(item, i) in Cart" :key="i">
-        <td class="sbcomponent_table_th">{{ item.Product }}</td>
-        <td class="sbcomponent_table_th">{{ item.Detail }}</td>
-        <td class="sbcomponent_table_th">{{ item.PricePerPiece }}</td>
+        <td class="sbcomponent_table_th">
+          <div class="p-3">
+            <p>{{ item.Product }}</p>
+            <p>{{ item.Product }}</p>
+            <p>{{ item.Product }}</p>
+          </div>
+        </td>
+        <td class="sbcomponent_table_th">
+          <div class="p-3">
+            <p>{{ item.Detail }}</p>
+            <p>{{ item.Detail }}</p>
+            <p>{{ item.Detail }}</p>
+          </div>
+        </td>
+        <td class="text-center sbcomponent_table_th">
+          {{ item.PricePerPiece.toFixed(2) }} บาท
+        </td>
         <td class="sbcomponent_table_th">
           <div class="input-group d-flex justify-content-center ml-2">
             <input
@@ -39,7 +58,9 @@
             />
           </div>
         </td>
-        <td class="sbcomponent_table_th">{{ Totalprice(item) }} บาท</td>
+        <td class="text-center sbcomponent_table_th">
+          {{ Totalprice(item).toFixed(2) }} บาท
+        </td>
         <td class="text-center sbcomponent_table_th">
           <b-button variant="danger" @click="dropitem(item)">ลบ</b-button>
         </td>
@@ -47,53 +68,47 @@
     </table>
     <div class="sbcomponent_table_th w-100 col-12 pr-0">
       <div class="row text-mid">
-          <div class="col-9 text-right">
-               ยอดรวมสินค้า
-          </div>
-          <div class="col-3 text-right">
-             {{summoney(Cart)}}  บาท
-          </div> 
+        <div class="col-9 text-right">ยอดรวมสินค้า</div>
+        <div class="col-3 text-right">{{ summoney(Cart) }} บาท</div>
       </div>
-               <hr class="row hrborder_bottom">
-      <div class="row  text-mid">
-          <div class="col-9 text-right">
-               ยอดรวมสินค้าสุทธิ(VAT)
-          </div>
-          <div class="col-3 text-right">
-             {{summoney(Cart)}}  บาท
-          </div> 
+      <hr class="row hrborder_bottom mt-0 mb-0" />
+      <div class="row text-mid">
+        <div class="col-9 text-right">ยอดรวมสินค้าสุทธิ(VAT)</div>
+        <div class="col-3 text-right">{{ summoney(Cart) }} บาท</div>
       </div>
-                <hr class="row hrborder_bottom">
-        <div class="row  text-mid">
-          <div class="col-10 pr-0">
-
-          </div>
-          <div class="col-1 pl-0 pr-0 text-center">
-            <button class="btn-delete-product" @click="dropallitem(Cart)">ล้างรายการ</button>
-          </div>
-          <div class="col-1 pl-0 pr-0 text-center">
-              <button class="btn-delete" @click="confirmProduct(Cart)">สั่งซื้อสินค้า</button>
-          </div> 
+      <hr class="row hrborder_bottom mt-0 mb-0" />
+      <div class="row text-mid">
+        <div class="col-10 pr-0"></div>
+        <div class="col-1 pl-0 pr-0 text-center">
+          <button class="btn-delete-product" @click="dropallitem(Cart)">
+            ล้างรายการ
+          </button>
+        </div>
+        <div class="col-1 pl-0 pr-0 text-center">
+          <button class="btn-delete" @click="confirmProduct(Cart)">
+            สั่งซื้อสินค้า
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
-import Swal from "sweetalert2";
+import { mapState, mapGetters } from 'vuex'
+import Swal from 'sweetalert2'
 export default {
   data() {
     return {
       localcart: [],
-    };
+    }
   },
   computed: {
     ...mapState({
       Cart: (state) => state.Cart.cart,
     }),
     ...mapGetters({
-      sumcart: "sumcart",
+      sumcart: 'sumcart',
     }),
   },
   mounted() {
@@ -101,103 +116,110 @@ export default {
   },
   methods: {
     Up(item) {
-      this.$store.commit("Cart/updatedUp", item);
+      this.$store.commit('Cart/updatedUp', item)
     },
     down(item) {
       if (item.Qty == 1) {
         Swal.fire({
-          icon: "warning",
-          title: "ลบลบลบ",
-          text: "ลบลบลบ",
-          confirmButtonText: "ตกลง",
+          icon: 'warning',
+          title: 'ลบลบลบ',
+          text: 'ลบลบลบ',
+          confirmButtonText: 'ตกลง',
           denyButtonText: `ไม่`,
           showDenyButton: true,
           allowOutsideClick: false,
         }).then((result) => {
           if (result.value) {
-            this.$store.commit("Cart/updatedDown", item);
+            this.$store.commit('Cart/updatedDown', item)
           }
-        });
+        })
       } else {
-        this.$store.commit("Cart/updatedDown", item);
+        this.$store.commit('Cart/updatedDown', item)
       }
     },
     dropitem(item) {
       Swal.fire({
-        icon: "warning",
-        title: "ลบลบลบ",
-        text: "ลบลบลบ",
-        confirmButtonText: "ตกลง",
+        icon: 'warning',
+        title: 'ลบลบลบ',
+        text: 'ลบลบลบ',
+        confirmButtonText: 'ตกลง',
         denyButtonText: `ไม่`,
         showDenyButton: true,
         allowOutsideClick: false,
       }).then((result) => {
         if (result.value) {
-          this.$store.commit("Cart/dropitem", item);
+          this.$store.commit('Cart/dropitem', item)
         }
-      });
+      })
     },
-    dropallitem(item){
-         Swal.fire({
-        icon: "warning",
-        title: "ลบลบลบ",
-        text: "ลบลบลบ",
-        confirmButtonText: "ตกลง",
+    dropallitem(item) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'ลบลบลบ',
+        text: 'ลบลบลบ',
+        confirmButtonText: 'ตกลง',
         denyButtonText: `ไม่`,
         showDenyButton: true,
         allowOutsideClick: false,
       }).then((result) => {
         if (result.value) {
           // console.log("asc");
-          this.$store.commit("Cart/dropAllitem");
+          this.$store.commit('Cart/dropAllitem')
+          this.$router.push({ path: '/PurchaseList' })
         }
-      });
+      })
     },
     Totalprice(item) {
       // console.log(item.Qty * item.PricePerPiece);
-      return item.Qty * item.PricePerPiece;
+      return item.Qty * item.PricePerPiece
     },
-    summoney(item){
+    summoney(item) {
       let sums = item.map((item) => {
-           return item.PricePerPiece * item.Qty
+        return item.PricePerPiece * item.Qty
       })
 
-      const result = sums.reduce((sum,number) => {
-        return sum+number
+      const result = sums.reduce((sum, number) => {
+        return sum + number
       }, 0)
       return result
     },
-  
-    confirmProduct(item){
+
+    confirmProduct(item) {
       let maindata = []
-            item.forEach(values => {  
-                    let data  = {id:values.id,
-                                  ProductCode :values.ProductCode,
-                                  Product :values.Product,
-                                  PricePerPiece :values.PricePerPiece,
-                                  Detail :values.Detail,
-                                  Totalprice :this.Totalprice(values),
-                                 }
-                        maindata.push(data) 
-            });
-              console.log(maindata);
-    }
+      item.forEach((values) => {
+        let data = {
+          id: values.id,
+          ProductCode: values.ProductCode,
+          Product: values.Product,
+          PricePerPiece: values.PricePerPiece,
+          Detail: values.Detail,
+          Totalprice: this.Totalprice(values),
+        }
+        maindata.push(data)
+      })
+      // console.log(maindata);
+      this.$router.push({ path: '/PurchaseList' })
+    },
   },
-};
+}
 </script>
 
-<style>
-.text-mid{
-   height: 100px;
+<style scoped>
+div > p {
+  font-weight: 550;
+  margin-bottom: 0;
+}
+.text-mid {
+  height: 100px;
   line-height: 100px;
   text-align: center;
 }
 .sbcomponent_table_th {
-  border: 2px solid #eaeaea;
+  border: 1.5px solid #eaeaea;
 }
 .hrborder_bottom {
-   border-bottom: 2px solid #eaeaea;
-}   
+  border-bottom: 0px solid #eaeaea;
+}
 input,
 textarea {
   border: 1px solid #eeeeee;
@@ -207,7 +229,7 @@ textarea {
   padding: 10px;
 }
 
-input[type="button"] {
+input[type='button'] {
   -webkit-appearance: button;
   cursor: pointer;
 }
@@ -223,14 +245,14 @@ input::-webkit-inner-spin-button {
   position: relative;
 }
 
-.input-group input[type="button"] {
+.input-group input[type='button'] {
   background-color: #ffffff;
   min-width: 38px;
   width: auto;
   transition: all 300ms ease;
 }
 
-.input-group input[type="button"]:active {
+.input-group input[type='button']:active {
   background-color: #e4e4e4;
   min-width: 38px;
   width: auto;
@@ -262,7 +284,7 @@ input::-webkit-inner-spin-button {
   left: -13px;
 }
 
-input[type="number"] {
+input[type='number'] {
   -moz-appearance: textfield;
   -webkit-appearance: none;
 }
